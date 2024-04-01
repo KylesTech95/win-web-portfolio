@@ -155,7 +155,7 @@ visibility:hidden;
     margin-top:2rem;
 }
 .about-me-container>li::marker{
-    color:red;
+    color:ghostwhite;
     font-size:30px;
 }
 .about-me-para-conainer{
@@ -181,8 +181,8 @@ visibility:hidden;
 }
 /*Stewie ray gun!*/
 .about-me-img{
-height:200px;
-width:200px;
+height:125px;
+width:125px;
 }
 .no-side-btn{
     display:none;
@@ -289,6 +289,7 @@ cursor:pointer;
     position:fixed;
     right:25px;
     top:25px;
+    color:ghostwhite;
     z-index:999;
     font-size:40px;
 }
@@ -305,7 +306,8 @@ cursor:pointer;
 #nav-list-container{
     width:100%;
     display:flex;
-    justify-content: center;
+    justify-content: end;
+    margin-right:2rem;
     align-items:center;
     list-style: none;
 }
@@ -424,10 +426,10 @@ opacity:0;
 .clock{
     letter-spacing: .5px;
     color:#fff;
-    font-size:30px;
+    font-size:22px;
     position:absolute; 
-    right:50px;
-    top:3px;
+    left:275px;
+    top:10px;
     padding: 0 .5rem;
     border-radius:12px;
     display:flex;
@@ -449,9 +451,10 @@ z-index:999;
     font-size:18px;
     transition:.3s;
     text-transform: uppercase;
-font-family: "Montserrat", sans-serif;
-padding:.5rem;
-border-radius:12px;
+    font-family: "Montserrat", sans-serif;
+    padding:.5rem;
+    color:ghostWhite;
+    border-radius:12px;
 }
 .appear{
     opacity:1;
@@ -612,7 +615,7 @@ z-index:998;
 }
 #floating-message{
     font-family: "Montserrat", sans-serif;
-    font-size:30px;
+    font-size:24px;
 }
 #languages-list-container>li{
     text-transform: uppercase;

@@ -3,6 +3,8 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+
 }
 
 body{
@@ -14,7 +16,12 @@ body{
     justify-content: center;
     height:100vh;
 }
-
+.notes-title{
+    font-size:24px;
+    color:#fff;
+    letter-spacing: .25px;
+    
+}
 textarea{
     font-size:18px;
     resize:none;
@@ -65,16 +72,14 @@ textarea{
 }
 .textarea-list-container>li{
     color:#fff;
-    transition:25s;
+    transition:.25s;
     padding:.25rem 0;
     border:2px double #fff;
-    transition:.5s;
     width:100%;
-    /* transition:.25s; */
     max-width: 500px;
     min-width:100px;
     display:flex;
-    font-size:20px;
+    font-size:18px;
     align-items: center;
     justify-content: space-between;
     padding:.5rem 1rem;
@@ -106,12 +111,9 @@ color:#fff;
     max-height:25vh;
     z-index:997;
     overflow-x:scroll;
-    transition:.25s;
 }
 
 .textarea-list-container{
-    /* transition:.25s; */
-    /* border:3px double pink; */
     overflow-x:hidden;
     z-index:998;
     gap:1rem;
@@ -132,7 +134,6 @@ color:#fff;
 
 
 #textarea-container{
-    transition:.25s;
     /* position:absolute; */
     background:#333;
     border: 8px outset lime;

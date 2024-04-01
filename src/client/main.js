@@ -167,7 +167,7 @@ c=0;
         }
         else if(el.classList.contains('kyle')){
             el.style=`
-            color:red;
+            color:ghostwhite;
             font-size:22px;
             `
         }
