@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Agdasima', sans-serif;
+}
+
+/*Centering the content*/
+body{
+    width: 100%;
+}
+#wrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 100vh;
+    margin-left:8rem;
+}
+/*Centering the content*/
+
+/*calculator's outter shell*/
+.cal-container{
+    width: 450px;
+    box-shadow: 0px 0px 9px .5px #4b4545a8;
+    z-index:999;
+    transform:scale(.6);
+    position:fixed;
+    top:-25px;
+    left:-25px;
+    overflow:hidden;
+}
+
+#colors-container{
+    height:30px;
+    width:100%;
+    border:none;
+    display:flex;
+    background:transparent;
+    
+
+}
+.exit-large{
+    transform:scale(2);
+    margin-right:1rem;
+    z-index:996;
+}
+.start-color{
+    transform:scale(.8);
+    transition:.25s;
+
+}
+.down{
+    transform:scale(.8);
+    transition:10s;
+}
+#exit-container{
+    z-index:997;
+    height:50px;
+    width:100%;
+    display:flex;
+    background:#f00;
+    display:flex;
+    flex-direction:column;
+    align-items: end;
+    justify-content: center;
+    transition:.5s;
+}
+#exit-container:hover{
+    cursor:pointer;
+    background:rgb(233, 126, 126)
+}
+.up{
+    transform:scale(1);
+    transition:10s;
+}
+.color-card:nth-child(1){
+    background:red;
+}
+.color-card:nth-child(2){
+    background:orange;
+}
+.color-card:nth-child(3){
+    background:yellow;
+}
+.color-card:nth-child(4){
+    background: green;
+}
+.color-card:nth-child(5){
+    background: blue;   
+}
+.color-card:nth-child(6){
+    background: violet;  
+}
+.color-card:nth-child(7){
+    background:  silver;  
+}
+.color-card:nth-child(8){
+    background: white;
+}
+.color-card:nth-child(9){
+    background: #000;
+}
+.color-card{
+    width:100%;
+    height:100%;
+    transition:.25s;
+    transition:.25s;
+}
+.color-card:hover{
+    transition:.25s;
+    transform:scale(.8);
+    box-shadow:.5px .5px 20px .25px #333;
+    cursor:pointer;
+}
+.calc{
+    transform:scale(1.5);
+
+}
+
+/*calculator actual*/
+.cal-actual{
+    box-shadow: inset 0px 0px 12px .75px #4b4545a8;
+    /*Flexing 2 divs - 1).display-container & 2).keypad-container*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background: silver;
+    padding: 2rem 0;
+    border-radius: 4px;
+}
+.cal-display-container{
+    border-radius: 8px;
+    box-shadow: 0px 0px 2px .25px rgb(148, 148, 148);
+}
+/*Display actual*/
+.cal-display-container>.display-actual{
+height: 50px;
+width: 400px;
+border-radius: 8px;
+border: none;
+box-shadow: inset 0px 0px 1.5px .5px #4b4545a8;
+text-align: right;
+padding: 0 2rem;
+font-size: 28px;
+outline: none;
+}
+/*Flexing div.row into 4 columns*/
+.keypad-container{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/*Flexing span.btn into 1 row*/
+.row{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0;
+    width: 75%;
+}
+/*styling each button*/
+.btn{
+    border: none;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    box-shadow: 1.5px 1.5px 8px .5px #4b454574;
+    font-family: 'Agdasima', sans-serif;
+    transition: .25s ease;
+}
+/*spacial styling for .long class (Del & =)*/
+.long{
+    width: 33%;
+    margin-top: 1rem;
+    letter-spacing: 1.25px;
+}
+/*Hovering over button*/
+.btn:hover{
+transition: .25s ease;
+background: #4b454574;
+color: silver;
+transform: scale(1.1);
+cursor: pointer;
+text-shadow: 0px 0px .5px #fff;
+}
+
+/**/
+.board{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    max-width: 600px;
+    padding: 0 1rem;
+    background: #000;
+    color: silver;
+    font-size: 60px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 1.5px 1.5px 8px .5px #4b454574;
+    text-shadow: .75px .75px 5px lime;
+    letter-spacing: 2px;
+    transition: .75s;
+}
+
+
+div.instructions{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .instructions>h3{
+    font-size: 30px;
+    text-decoration: underline;
+  }
+  div.instructions>ul.contain{
+    display: flex;
+    flex-direction: column;
+  }
+  .calc{
+    margin-top:.5rem;
+    transition:.5s;
+  }
+
+  @media screen and (max-width:995px){
+    
+    #wrapper{
+        flex-direction: column-reverse;
+        justify-content: center;
+        gap: 5rem;
+        margin-left:0;
+    }
+    .board{
+        height: 125px;
+        transition: .1s ease;
+    }
+    div.instructions{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    div.instructions>ul.contain{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    }
+
+}
+  ul.contain{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .list-item{
+    list-style: none;
+    font-size: 20px;
+  }
+  
+  .end{
+    display: flex;
+    gap: 1.5rem;
+  }

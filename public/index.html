@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="/src/client/clone/styles.css">
+<link rel="stylesheet" href="/src/client/notes/public/styles.css">
+    <title>3D three.js App</title>
+</head>
+<body> 
+
+    <div class="indicator indicator-down">
+        <h2 class="indicator-scroll-down">Scroll Down</h2>
+    </div>
+    <div w3-include-html="src/client/clone/index.html" class="calc-hidden calc-actual"></div> 
+    <div w3-include-html="src/client/notes/public/index.html" class="notes-html calc-hidden"></div> 
+    <script>
+        function includeHTML() {
+          var z, i, elmnt, file, xhttp;
+          /* Loop through a collection of all HTML elements: */
+          z = document.getElementsByTagName("*");
+          for (i = 0; i < z.length; i++) {
+            elmnt = z[i];
+            /*search for elements with a certain atrribute:*/
+            file = elmnt.getAttribute("w3-include-html");
+            if (file) {
+              /* Make an HTTP request using the attribute value as the file name: */
+              xhttp = new XMLHttpRequest();
+              xhttp.onreadystatechange = function() {
+                if (this.readyState == 4) {
+                  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+                  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+                  /* Remove the attribute, and call this function once more: */
+                  elmnt.removeAttribute("w3-include-html");
+                  includeHTML();
+                }
+              }
+              xhttp.open("GET", file, true);
+              xhttp.send();
+              /* Exit the function: */
+              return;
+            }
+          }
+        }
+        </script>       
+        <script>
+            includeHTML();
+        </script>
+            <hr class="midline">
+
+    <counter style="visibility:hidden" class="side-counter counter side">3</counter>
+    <canvas class="three-canvas hidden"></canvas>
+    <canvas class="three-canvas1 hidden"></canvas>
+    <div id="nav-container1" class="base">
+            <span class="material-symbols-outlined calculator calc calc-icon icon-calc bye-calc">
+                calculate
+            </span>
+
+            <span class="material-symbols-outlined notepad notes notes-icon icon-notes bye-calc">
+                add_notes
+            </span>
+        <div id="toggle-container" class="toggle-btn btn-toggle mobile bars">
+            <span class="retreat-toggle toggle-side-btn material-symbols-outlined">
+            scatter_plot
+            </span>
+            <span class="appear-toggle toggle-side-btn material-symbols-outlined">
+                bubble_chart
+                </span>
+        </div>
+        <nav id="nav-container1-actual">
+            <!--include time-->
+            <div id="current-time" class="time clock calc-hidden"><h4></h4></div>
+            <ul id="nav-list-container" class="hideItems">
+                <li class="nav-list-item hideItems"><a href="#welcome-container" class="nav-list-link hideItems">Home</a></li>
+                <!-- <li class="nav-list-item hideItems"><a href="" class="nav-list-link hideItems">About</a></li> -->
+                <li class="nav-list-item hideItems"><a href="#languages-container" class="nav-list-link hideItems">Languages</a></li>
+                <li class="nav-list-item hideItems"><a href="#work-container" class="nav-list-link hideItems">Work</a></li>
+                <!-- <li class="nav-list-item hideItems"><a href="" class="nav-list-link hideItems">Functions</a></li> -->
+                <li class="nav-list-item hideItems"><a href="#footer" class="nav-list-link hideItems">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <section class="space transparent-space empty empty-space reg-space"><p class="timer"></p></section>
+
+    <!--2 section dynamic. 1 content, 1 space-->
+    <section id="welcome-container" class="welcome daddy daddy-container">
+        <!--Content-->
+        <div class="content-module one content-mod content-hide mod-content">
+            <em><h4 class="about-me-para" style="margin-bottom:1.25rem;">Cheers</h4></em>
+            <div class="about-me-image-container">
+                <img src="media/stewie_ray_gun.png" alt="" class="about-me-img">
+            </div>
+            <div class="about-me-para-container">
+                <em class="about-me-para">
+                    <!--about me paragraph-->
+                    
+                    While <span style="color:red;font-size:22px;" class="about-me-para kyle">Kyle</span> enjoys sleeping on the beach and focusing on his fitness, he can:
+                </em>
+                
+                <ol class="about-me-container">
+                    <li class="about-me-item">
+                        <p class="about-me-para-list">Architect new & effective solutions to meet the needs of the consumer.</p>
+                    </li>
+                    <li class="about-me-item">
+                        <p class="about-me-para-list">Deploy, maintain & test both server-side & client-side entities.</p>
+                    </li>
+                    <li class="about-me-item">
+                        <p class="about-me-para-list">Create & maintain database applications for easy plug-in and utilization.</p>
+                    </li>
+                </ol>
+                <div class="divider"></div>
+                <em class="about-me-para">
+                    <!--about me paragraph-->
+                   Get to know <span style="color:red;font-size:22px;" class="about-me-para kyle">Kyle</span>.
+                </em>
+            </div>
+        </div>
+    </section>
+
+    <section class="space transparent-space empty empty-space reg-space"><p class="timer"></p></section>
+    <!--2 section dynamic. 1 content, 1 space-->
+    <section id="languages-container" class="welcome daddy daddy-container">
+        <!--Content-->
+        <div class="content-module two content-mod content-hide mod-content">
+            <ul class="languages-list-container-2">
+                <li class="languages-list-item">
+                    <img src="media/js-svgrepo-com.svg" alt="" class="languages-list-img">
+                </li>
+                <li class="languages-list-item">
+                    <img src="media/postgre.jpg" alt="" class="languages-list-img">
+                </li>
+                <li class="languages-list-item">
+                    <img src="media/html5.jpeg" alt="" class="languages-list-img">
+                </li>
+                <li class="languages-list-item">
+                    <img src="media/w3_css-official.svg" alt="" class="languages-list-img">
+                </li>
+                <li class="languages-list-item">
+                    <img src="media/sql sql.png" alt="" class="languages-list-img">
+                </li>
+                <li class="languages-list-item">
+                    <img src="media/bootstrap.jpeg" alt="" class="languages-list-img">
+                </li>
+                <li class="languages-list-item">
+                    <img src="media/reactlogo.png" alt="" class="languages-list-img">
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="space transparent-space empty empty-space reg-space"><p class="timer"></p></section>
+    <!--2 section dynamic. 1 content, 1 space-->
+    <section id="work-container" class="welcome daddy daddy-container">
+        <!--Content-->
+        <div class="content-module three content-mod content-hide mod-content">
+            <h3 id="work-title"></h3>
+            <ul class="work-list-container">
+                <!-- <li class="work-list-item">test</li>
+                <li class="work-list-item">test</li>
+                <li class="work-list-item">test</li>
+                <li class="work-list-item">test</li>
+                <li class="work-list-item">test</li>
+                <li class="work-list-item">test</li>
+                <li class="work-list-item">test</li> -->
+            </ul>
+        </div>
+    </section>
+
+    
+
+    <section class="space transparent-space empty empty-space reg-space"><p class="timer"></p></section>
+
+    <footer id="footer">
+        <div id="fmessage">
+            <h1 id="floating-message" class="folat hidden float-msg msg-float">Click Anywhere within Purple Space</h1>
+        </div>
+        <!--contact/links-->
+        <div id="contact-container" class="show-icons hidden">
+            <div class="contact-icon-div">
+                <a href="https://www.github.com/kylestech95" target="_blank" class="icon-link">
+                    <img class="contact-icon-img" src="media/icons8-github-96.png" alt="" srcset="">
+                </a>
+            </div>
+            <div class="contact-icon-div">
+                <a href="https://www.instagram.com/index_daddy0" target="_blank" class="icon-link">
+                    <img class="contact-icon-img" src="media/icons8-instagram-96.png" alt="" srcset="">
+                </a>
+            </div>
+            <div class="contact-icon-div">
+                <a href="https://www.linkedin.com/" target="_blank" class="icon-link">
+                    <img class="contact-icon-img" src="media/icons8-linkedin-96.png" alt="" srcset="">
+                </a>
+            </div>
+        </div>
+
+
+        <!---github-->
+        <div id="github-container">
+            <!--username-->
+            <div id="username-container-gh"><h4 class="username-gh"></h4></div>
+            <!-- image -->
+            <div id="image-container-gh">
+                <img src="media/icons8-github-94.png" alt="github emblem" id="github-image" class="github-img img-github">    
+            </div>
+            <div id="github-info">
+                
+                <!--rank-->
+                <div id="repos-container">
+                    <h2>Repositories</h2>
+                    <h3 class="repos"></h3>
+                </div>
+            </div>
+
+        </div>
+        
+        <!---codewars-->
+        <div id="codewars-container">
+            <!--username-->
+            <div id="username-container"><h4 class="username"></h4></div>
+            <!-- image -->
+            <div id="image-container">
+                <img src="/media/cwars.png" alt="codewars emblem" id="codewars-image" class="codewars-img img-codewars">    
+            </div>
+            <div id="codewars-info">
+                <!--languages list-->
+                <div id="languages-container">
+                    <ul id="languages-list-container">
+                        
+                    </ul>
+                </div>
+                <!--rank-->
+                <div id="rank-container">
+                    <h3 class="rank"></h3>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+<script type="module" src="/src/client/main.js"></script>
+<script type="module" src="/src/client/codewars.js"></script>
+<script type="module" src="/src/client/footer.js"></script>
+<script type="module" src="/src/client/git.js"></script>
+<script type="module" src="/src/client/clone/main.js"></script>
+<script type="module" src="/src/client/notes/public/main.js"></script>
+
+
+
+
+
+
+</html> 

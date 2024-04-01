@@ -1,0 +1,34 @@
+{
+  "author": "Kyle Anthony",
+  "name": "portfolio-dev",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "src/server/main.js",
+  "scripts": {
+    "dev": "nodemon src/server/main.js -w src/server",
+    "vite": "vite",
+    "start": "NODE_ENV=production node src/server/main.js",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "@edixon/css-battle-api": "^0.7.8",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "octokit": "^3.1.2",
+    "path": "^0.12.7",
+    "pg": "^8.11.3",
+    "three": "^0.162.0",
+    "url": "^0.11.3",
+    "vite": "^5.2.7",
+    "vite-express": "*",
+    "vite-plugin-restart": "^0.4.0",
+    "vite-tsconfig-paths": "^4.3.2",
+    "webpack": "^5.91.0"
+  }
+}
