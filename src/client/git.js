@@ -6,7 +6,7 @@ const repoCount = document.querySelector('.repos')
 const gitImg = document.querySelector('#github-image')
 const gitUrl = `https://github.com/kylestech95/?=repositories`
 const workContainer =document.querySelector('.work-list-container')
-const approvedRepos = ['basic-form','navigation-bar-interactive','database-playground-fork','mancala-game','snake-game','tile-selection-tool-interactive','lemonade-stand-database','circuit-party-db','eight-ball-react-js']
+const approvedRepos = ['basic-form','database-playground-fork','mancala-game','eight-ball-react-js']
 const workTitle =document.getElementById('work-title')
 
 const fetchFn = (api) => {

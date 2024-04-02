@@ -48,14 +48,7 @@ arr[0] = arr[0].slice(0,-3)
 return arr.join` `
 }
 timeElem.textContent=modTime(current_local)
-if(body.clientWidth <= 890){
-    //refresh calculator-icon classes by disgarding desktop classes for appearance
-    calculator.classList.add('hidden')
-}
-
-
 counterElem.style='opacity:0'
-let bg
 const mobileBtn = document.querySelector('.btn-toggle')
 let control = false;
 mobileBtn.onclick = () => {
@@ -77,8 +70,7 @@ mobileBtn.onclick = () => {
         two.classList.add('appear-toggle')
         one.classList.add('retreat-toggle')
     }
-}
-   
+} 
 // hr mouseover
 let currentDisplay = {
     canvas:false,
@@ -126,49 +118,41 @@ let calcClassSm = `z-index:999;
 `
 c=0;
 
-    allElements.forEach(el => {
-        if(el== timeElem&&body.clientWidth<=890){
-            el.style=`
-            position:absolute;
-            top:320px;
-            right:0px;
-            border:none;
-             `
-        }
-        
-        else if(el==calcActual){
-            if(body.clientWidth>890){
-                el.style=calcClass;
-            }
-            else{
-                el.style=calcClassSm;
-            }
-        }
-        else if(el.classList.contains('languages-list-item')){
-            for(let i = 0; i < allLang.length; i++){
-                if(i%2==0){
-                    allLang[i].style = `transform:translate(0,50px)`
-                }
-                else{
-                    allLang[i].style = `transform:translate(0,-50px)`
-                }
-            }
-        }
-        else if(el.classList.contains('.divider')){
-            el.style=`margin-top:1rem;`
-        }
-        else if(el.classList.contains('kyle')){
-            el.style=`
-            color:ghostwhite;
-            font-size:22px;
-            `
+allElements.forEach(el => {
+    
+    if(el==calcActual){
+        if(body.clientWidth>890){
+            el.style=calcClass;
         }
         else{
-            el.style = `visibility:visible;`
+            el.style=calcClassSm;
         }
-        counterElem.style='opacity:0'
-        middleLine.style = `top: ${screen.height/2}px`
-    })
+    }
+    else if(el.classList.contains('languages-list-item')){
+        for(let i = 0; i < allLang.length; i++){
+            if(i%2==0){
+                allLang[i].style = `transform:translate(0,50px)`
+            }
+            else{
+                allLang[i].style = `transform:translate(0,-50px)`
+            }
+        }
+    }
+    else if(el.classList.contains('.divider')){
+        el.style=`margin-top:1rem;`
+    }
+    else if(el.classList.contains('kyle')){
+        el.style=`
+        color:ghostwhite;
+        font-size:22px;
+        `
+    }
+    else{
+        el.style = `visibility:visible;`
+    }
+    counterElem.style='opacity:0'
+    middleLine.style = `top: ${screen.height/2}px`
+})
 }
 const bringElementsBack=()=>{
     currentDisplay.canvas = false;
@@ -250,138 +234,21 @@ space.forEach(header =>{
 
     })
 })
-// mobile view
-if(body.clientWidth <= 890){
-    if(currentDisplay.not_canvas==true){// && resizeFn !== true
-        const dropNav = () => {
-            nav.classList.remove('base')
-            nav.classList.add('regular')
-            calculator.classList.add('appear')
-            calculator.classList.remove('hidden')
-            nav_container.classList.remove('hideItems')
-            nav_container.classList.add('showItems')
-            
-            items.forEach((item,i)=>{
-                    item.classList.remove('hideItems')
-                    item.classList.add('showItems')
-                    item.children[0].classList.add('showItems')
-                    item.children[0].classList.remove('hideItems')
-            })
-    
-        }
-        const hideNav = () => {
-            clearTimeout(dropTimer)
-            nav.classList.add('base')
-            nav.classList.remove('regular')
-            calculator.classList.remove('appear')
-            calculator.classList.add('hidden')
-            nav_container.classList.add('hideItems')
-            nav_container.classList.remove('showItems')
-            timeElem.classList.add('calc-hidden')
-            timeElem.classList.remove('calc-appear')
-            items.forEach((item,i)=>{
-            item.classList.remove('showItems')
-            item.classList.add('hideItems')
-            item.children[0].classList.remove('showItems')
-            item.children[0].classList.add('hideItems')
-        })
-      }
-        window.addEventListener('scroll',e=>{
-            let tY = window.scrollY;
-            if(tY>=document.body.getBoundingClientRect().x){
-                dropNav()
-                indicator.classList.add('hidden')
-                indicator.classList.remove('appear')
-                calculator.classList.remove('hidden')
-                calculator.classList.add('appear')
-                timeElem.classList.remove('calc-hidden')
-                timeElem.classList.add('calc-appear')
-            }
-            if(tY<=document.body.getBoundingClientRect().x){
-                hideNav()
-                indicator.classList.add('appear')
-                indicator.classList.remove('hidden')
-                calculator.classList.add('hidden')
-                calculator.classList.remove('appear')
-                calcActual.classList.add('calc-hidden')
-                calcActual.classList.remove('calc-appear')
-                timeElem.classList.add('calc-hidden')
-                timeElem.classList.remove('calc-appear')
-                c=0;
-            }
-            
-            return [...contents].forEach((element,i) => {
-                // forEach content, do something...
-                if(middleLine.getBoundingClientRect().y > element.parentElement.getBoundingClientRect().y && middleLine.getBoundingClientRect().y < element.parentElement.getBoundingClientRect().y+element.parentElement.getBoundingClientRect().height){
-                    element.classList.add('content-show')
-                    element.classList.remove('content-hide')
-                    setTimeout(()=>{
-                   // element.style = `height:500px;width:80%;`
-                        
-                    },500)
-    
-                    
-                    
-                }
-                else{
-                    element.classList.remove('content-show')
-                    element.classList.add('content-hide')
-                
-    
-                }
-                
-            })
-        })
-        nav.addEventListener('click',e=>{
-            nav_container.classList.remove('hideItems')
-            nav_container.classList.add('showItems')
-            e.currentTarget.classList.add('regular')
-            e.currentTarget.classList.remove('base')
-            calculator.classList.add('appear')
-            calculator.classList.remove('hidden')
-            timeElem.classList.remove('calc-hidden')
-            timeElem.classList.add('calc-appear')
-            items.forEach((item,i)=>{
-                item.classList.add('showItems')
-                item.classList.remove('hideItems')
-                item.children[0].classList.add('showItems')
-                item.children[0].classList.remove('hideItems')
-            })
-        })
-        daddys.forEach(dad=>{
-            dad.addEventListener('click',e=>{
-                c = 0;
-                d = 0
-                nav.classList.remove('regular')
-                nav.classList.add('base')
-                timeElem.classList.add('calc-hidden')
-                timeElem.classList.remove('calc-appear')
-                calculator.classList.remove('appear')
-                calculator.classList.add('hidden')
-                calcActual.classList.add('calc-hidden')
-                calcActual.classList.remove('calc-appear')
-                items.forEach((item,i)=>{
-                    item.classList.remove('showItems')
-                    item.classList.add('hideItems')
-                    item.children[0].classList.remove('showItems')
-                    item.children[0].classList.add('hideItems')
-                })
-            })
-        })
-    }
-}
 
-if(body.clientWidth > 890){
     if(currentDisplay.not_canvas==true){
         const dropNav = () => {
             nav.classList.remove('base')
             nav.classList.add('regular')
             calculator.classList.add('hi-calc')
             calculator.classList.remove('bye-calc')
+            calculator.classList.remove('calc-hidden')
+            calculator.classList.add('calc-appear')
             n_icon.classList.add('hi-calc')
             n_icon.classList.remove('bye-calc')
             nav_container.classList.remove('hideItems')
             nav_container.classList.add('showItems')
+            n_icon.classList.add('calc-appear')
+            n_icon.classList.remove('calc-hidden')
             
             
             items.forEach((item,i)=>{
@@ -398,8 +265,12 @@ if(body.clientWidth > 890){
             nav.classList.remove('regular')
             calculator.classList.remove('hi-calc')
             calculator.classList.add('bye-calc')
+            calculator.classList.remove('calc-appear')
+            calculator.classList.add('calc-hidden')
             n_icon.classList.remove('hi-calc')
             n_icon.classList.add('bye-calc')
+            n_icon.classList.remove('calc-appear')
+            n_icon.classList.add('calc-hidden')
             nav_container.classList.add('hideItems')
             nav_container.classList.remove('showItems')
             timeElem.classList.add('calc-hidden')
@@ -459,6 +330,10 @@ if(body.clientWidth > 890){
             })
         })
         nav.addEventListener('click',e=>{
+            calculator.classList.remove('calc-hidden')
+            calculator.classList.add('calc-appear')
+            n_icon.classList.remove('calc-hidden')
+            n_icon.classList.add('calc-appear')
             nav_container.classList.remove('hideItems')
             nav_container.classList.add('showItems')
             e.currentTarget.classList.add('regular')
@@ -480,6 +355,10 @@ if(body.clientWidth > 890){
             dad.addEventListener('click',e=>{
                 c = 0;
                 d = 0;
+                calculator.classList.add('calc-hidden')
+                calculator.classList.remove('calc-appear')
+                n_icon.classList.add('calc-hidden')
+                n_icon.classList.remove('calc-appear')
                 nav.classList.remove('regular')
                 nav.classList.add('base')
                 timeElem.classList.add('calc-hidden')
@@ -501,7 +380,7 @@ if(body.clientWidth > 890){
             })
         })
     }
-}
+
 
 
 // show calculator
@@ -563,16 +442,5 @@ function toggleNotes(){
     })
     }
 toggleNotes()
-
-if(document.body.clientWidth <= 890){
-    calcActual.style = `
-    z-index:997;
-    position:fixed;
-    width:100%;
-    bottom:0;
-    right:0;
-    transform:translate(${(body.clientWidth/2)-125}px,300px);
-    `
-}
 
  
