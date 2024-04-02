@@ -221,7 +221,7 @@ textarea{
     z-index:999;
     opacity:1;
     position:fixed;
-    top:-50px;
+    top:50px;
     left:300px;
     opacity:.9;
     /* display:none; */
@@ -279,7 +279,7 @@ cursor:pointer;
     right:0;
     transition:.5s;
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -313,7 +313,7 @@ cursor:pointer;
 }
 
 .regular{
-    height:50px;
+    height:125px;
 }
 .base{
     height:12px;
@@ -394,11 +394,12 @@ canvas{
 .nav-list-link{
     text-transform: uppercase;
     transition:.5s;
-    padding: .75rem 2rem;
+    padding: 2.5rem 2rem;
     transition:.25s;
     color:#fff;
     font-weight:bold;
     font-family: "Montserrat", sans-serif;    
+    margin-right:.25rem;
 }
 .content-hide{
 transform:translate(0px,250px);
@@ -422,14 +423,28 @@ opacity:0;
 .calc-appear{
     opacity:.9;
 }
-
+#components-container{
+    height:60px;
+    width:100%;
+    display:flex;
+    justify-content: start;
+    align-items: center;
+    margin-left:3rem;
+}
+#components-container>div{
+    margin-left:4rem;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .clock{
     letter-spacing: .5px;
     color:#fff;
     font-size:22px;
-    position:absolute; 
+    /* position:absolute; 
     left:275px;
-    top:10px;
+    top:10px; */
     padding: 0 .5rem;
     border-radius:12px;
     display:flex;
@@ -671,14 +686,14 @@ list-style: none;
 .calc-actual{
     z-index:999;
     position:absolute;
-    top:0;
+    top:75px;
     left:0;
 }
 .notes-icon{
     transition:.25s;
-    position:absolute;
+    /* position:absolute; */
     color:#fff;
-    left: 12%;
+    /* left: 12%; */
     z-index:999;
     transform:scale(1.5);
     margin-top:.5rem;
@@ -691,9 +706,9 @@ list-style: none;
 }
 .calc{
     transition:.25s;
-    position:fixed;
+    /* position:fixed;
+    left: 5%; */
     color:#fff;
-    left: 5%;
     z-index:999;
 }
 .calc:hover{

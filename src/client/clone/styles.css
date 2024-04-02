@@ -34,7 +34,7 @@ body{
     z-index:999;
     transform:scale(.6);
     position:fixed;
-    top:-25px;
+    top:50px;
     left:-25px;
     overflow:hidden;
 }

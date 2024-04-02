@@ -154,14 +154,6 @@ c=0;
                 }
             }
         }
-        else if(el==calculator&&body.clientWidth<=890){
-            calculator.style=`
-            position:absolute;
-            top:500px;
-            left:25px;
-            transform:scale(2);
-            display:block;
-        `}
         else if(el.classList.contains('.divider')){
             el.style=`margin-top:1rem;`
         }

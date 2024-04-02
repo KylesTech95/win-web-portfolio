@@ -59,13 +59,29 @@
     <canvas class="three-canvas hidden"></canvas>
     <canvas class="three-canvas1 hidden"></canvas>
     <div id="nav-container1" class="base">
-            <span class="material-symbols-outlined calculator calc calc-icon icon-calc bye-calc">
+        <!--components container-->
+        <div id="components-container">
+            <div class="material-symbols-outlined calculator calc calc-icon icon-calc bye-calc">
                 calculate
-            </span>
+            </div>
 
-            <span class="material-symbols-outlined notepad notes notes-icon icon-notes bye-calc">
+            <div class="material-symbols-outlined notepad notes notes-icon icon-notes bye-calc">
                 add_notes
-            </span>
+            </div>
+            <!--include time-->
+            <div id="current-time" class="time clock calc-hidden"><h4></h4></div>
+        </div>
+            
+
+
+
+
+
+
+
+
+
+
         <div id="toggle-container" class="toggle-btn btn-toggle mobile bars">
             <span class="retreat-toggle toggle-side-btn material-symbols-outlined">
             scatter_plot
@@ -75,8 +91,6 @@
                 </span>
         </div>
         <nav id="nav-container1-actual">
-            <!--include time-->
-            <div id="current-time" class="time clock calc-hidden"><h4></h4></div>
             <ul id="nav-list-container" class="hideItems">
                 <li class="nav-list-item hideItems"><a href="#welcome-container" class="nav-list-link hideItems">Home</a></li>
                 <!-- <li class="nav-list-item hideItems"><a href="" class="nav-list-link hideItems">About</a></li> -->
